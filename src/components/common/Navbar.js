@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 
-const Header = () => {
+const Navbar = () => {
   return (
     <nav>
       <IndexLink to="/" activeClassName="active">Home</IndexLink>
@@ -11,4 +11,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
