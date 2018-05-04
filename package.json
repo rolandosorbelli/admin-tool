@@ -2,6 +2,9 @@
   "name": "admin-tool-react",
   "version": "1.0.0",
   "description": "Admin Tool in React and Redux",
+  "scripts": {
+    "start": "babel-node tools/srcServer.js"
+  },
   "author": "Rolando Sorbelli",
   "license": "MIT",
   "dependencies": {
