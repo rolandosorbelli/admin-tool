@@ -7,11 +7,11 @@
 
 a {
   color: #c60124 !important;
+  text-decoration: none !important;
 }
 
-a:hover, a:focus {
+a.active {
   color: #350002 !important;
-  text-decoration: none !important;
 }
 
 nav {
