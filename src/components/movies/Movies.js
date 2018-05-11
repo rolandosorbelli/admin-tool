@@ -28,9 +28,9 @@ class Movies extends React.Component {
         <h1 className="pageTitle">Movies</h1>
         <p>At vel indoctum consetetur. Inermis accumsan vel cu. Modo meis platonem eu quo, summo definiebas eam eu.</p>
         <h3>Add Movie</h3>
-          <input type="text" onChange={this.onTitleChange} value={this.state.movie.title}/>
+          <input type="text" onChange={this.onTitleChange} value={this.state.movie.title} className="inputField"/>
 
-          <input type="submit" value="Submit" onClick={this.onClickSave}/>
+          <input type="submit" value="Submit" onClick={this.onClickSave} className="inputButton"/>
       </div>
     );
   }

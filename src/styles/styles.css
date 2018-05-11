@@ -17,3 +17,13 @@ a.active {
 nav {
   padding-top: 20px;
 }
+
+.inputField {
+  width: 50%;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.inputField:focus {
+  user-select: none;
+}
