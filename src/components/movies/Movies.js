@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import * as movieAction from '../../actions/movieActions';
 
 class Movies extends React.Component {
   constructor(props, context){
@@ -19,7 +21,7 @@ class Movies extends React.Component {
   }
 
   onClickSave(){
-    alert(`Saving ${this.state.movie.title}.`);
+    this.props.dispatch(movieAction.createMovie(this.state.movie));
   }
 
   render() {
@@ -36,4 +38,10 @@ class Movies extends React.Component {
   }
 }
 
-export default Movies;
+function mapStateToProps(state, ownProps) {
+  return {
+    movies: state.movies
+  };
+}
+
+export default connect(mapStateToProps)(Movies);
