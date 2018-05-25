@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import * as movieAction from '../../actions/movieActions';
+import * as movieActions from '../../actions/movieActions';
 
 export class Movies extends React.Component {
   constructor(props, context){
@@ -21,18 +21,22 @@ export class Movies extends React.Component {
   }
 
   onClickSave(){
-    this.props.dispatch(movieAction.createMovie(this.state.movie));
+    this.props.dispatch(movieActions.createMovie(this.state.movie));
+  }
+
+  movieRow(movie, index) {
+    return <div key={index} className="movieRow">{movie.title}</div>;
   }
 
   render() {
     return (
       <div>
         <h1 className="pageTitle">Movies</h1>
-        <p>At vel indoctum consetetur. Inermis accumsan vel cu. Modo meis platonem eu quo, summo definiebas eam eu.</p>
         <h3>Add Movie</h3>
           <input type="text" onChange={this.onTitleChange} value={this.state.movie.title} className="inputField"/>
 
           <input type="submit" value="Submit" onClick={this.onClickSave} className="inputButton"/>
+          <div>{this.props.movies.map(this.movieRow)}</div>
       </div>
     );
   }
@@ -45,7 +49,8 @@ function mapStateToProps(state, ownProps) {
 }
 
 Movies.propTypes = {
-  dispatch: PropTypes.object.isRequired
+  dispatch: PropTypes.object.isRequired,
+  movies: PropTypes.array.isRequired
 };
 
 export default connect(mapStateToProps)(Movies);

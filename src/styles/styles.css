@@ -27,3 +27,11 @@ nav {
 .inputField:focus {
   user-select: none;
 }
+
+.movieRow {
+  margin-top: 20px;
+  padding: 10px;
+  border: solid 1px #DCDCDC;
+  width: fit-content;
+
+}

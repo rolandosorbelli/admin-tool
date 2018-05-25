@@ -4,25 +4,15 @@ import {mount, shallow} from 'enzyme';
 
 import {Movies} from '../components/movies/Movies';
 
-// function setup() {
-//   const props = {
-//     movie: {}, errors: {},
-//     onTitleChange: () => {},
-//     onClickSave: () => {}
-//   };
-//   return shallow(<Movies {...props} />);
-// }
-
 describe('Movies Component', () => {
 
   let wrapper;
   let submitButton;
   let inputField;
   beforeEach(() => {
-    wrapper = mount(<Movies />);
+    wrapper = mount(<Movies movies={[]} />);
     inputField = wrapper.find('input').first();
     submitButton = wrapper.find('input').last();
-
   });
 
   it('checks if <div> exists', () => {
@@ -37,13 +27,13 @@ describe('Movies Component', () => {
     expect(wrapper.find('h1').text()).toEqual('Movies');
   });
 
-  it('checks if <p> exists', () => {
-    expect(wrapper.find('p').length).toBe(1);
-  });
-
-  it('renders the text of <p>', () => {
-    expect(wrapper.find('p').text()).toEqual('At vel indoctum consetetur. Inermis accumsan vel cu. Modo meis platonem eu quo, summo definiebas eam eu.');
-  });
+  // it('checks if <p> exists', () => {
+  //   expect(wrapper.find('p').length).toBe(1);
+  // });
+  //
+  // it('renders the text of <p>', () => {
+  //   expect(wrapper.find('p').text()).toEqual('At vel indoctum consetetur. Inermis accumsan vel cu. Modo meis platonem eu quo, summo definiebas eam eu.');
+  // });
 
   it('checks if <h3> exists', () => {
     expect(wrapper.find('h3').length).toBe(1);
