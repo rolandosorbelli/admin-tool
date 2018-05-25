@@ -25,7 +25,7 @@ export class Movies extends React.Component {
   }
 
   movieRow(movie, index) {
-    return <div key={index} className="movieRow">{movie.title}</div>;
+    return <p key={index} className="movieRow">{movie.title}</p>;
   }
 
   render() {
