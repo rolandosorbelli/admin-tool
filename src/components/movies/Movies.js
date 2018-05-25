@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import * as movieAction from '../../actions/movieActions';
 
-class Movies extends React.Component {
+export class Movies extends React.Component {
   constructor(props, context){
     super(props, context);
 
