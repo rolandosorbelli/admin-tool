@@ -44,4 +44,8 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
+Movies.propTypes = {
+  dispatch: PropTypes.object.isRequired
+};
+
 export default connect(mapStateToProps)(Movies);
