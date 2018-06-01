@@ -13,6 +13,7 @@ export class Movies extends React.Component {
 
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
+    this.onPressEnter = this.onPressEnter.bind(this);
   }
 
   onTitleChange(event){
@@ -25,6 +26,12 @@ export class Movies extends React.Component {
     this.props.actions.createMovie(this.state.movie);
   }
 
+  onPressEnter(e){
+    if (e.key === 'Enter') {
+      this.props.actions.createMovie(this.state.movie);
+    }
+  }
+
   movieRow(movie, index) {
     return <div key={index} className="movieRow">{movie.title}</div>;
   }
@@ -34,7 +41,11 @@ export class Movies extends React.Component {
       <div>
         <h1 className="pageTitle">Movies</h1>
         <h3>Add Movie</h3>
-          <input type="text" onChange={this.onTitleChange} value={this.state.movie.title} className="inputField"/>
+          <input type="text"
+            onKeyPress={this.onPressEnter}
+            onChange={this.onTitleChange}
+            value={this.state.movie.title}
+            className="inputField"/>
 
           <input type="submit" value="Submit" onClick={this.onClickSave} className="inputButton"/>
           <div className="movieContainer">{this.props.movies.map(this.movieRow)}</div>
