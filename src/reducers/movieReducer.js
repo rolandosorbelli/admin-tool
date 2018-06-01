@@ -1,9 +1,7 @@
 export default function movieReducer(state = [], action) {
   switch(action.type) {
-    case 'CREATE_MOVIE':
-      return [...state,
-      Object.assign({}, action.movie)
-      ];
+    case 'LOAD_MOVIES_SUCCESS':
+      return action.movies;
 
       default:
         return state;
