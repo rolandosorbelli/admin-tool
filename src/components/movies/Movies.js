@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as movieActions from '../../actions/movieActions';
 
 export class Movies extends React.Component {
@@ -21,11 +22,11 @@ export class Movies extends React.Component {
   }
 
   onClickSave(){
-    this.props.dispatch(movieActions.createMovie(this.state.movie));
+    this.props.actions.createMovie(this.state.movie);
   }
 
   movieRow(movie, index) {
-    return <p key={index} className="movieRow">{movie.title}</p>;
+    return <div key={index} className="movieRow">{movie.title}</div>;
   }
 
   render() {
@@ -36,7 +37,7 @@ export class Movies extends React.Component {
           <input type="text" onChange={this.onTitleChange} value={this.state.movie.title} className="inputField"/>
 
           <input type="submit" value="Submit" onClick={this.onClickSave} className="inputButton"/>
-          <div>{this.props.movies.map(this.movieRow)}</div>
+          <div className="movieContainer">{this.props.movies.map(this.movieRow)}</div>
       </div>
     );
   }
@@ -48,9 +49,15 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(movieActions, dispatch)
+  };
+}
+
 Movies.propTypes = {
-  dispatch: PropTypes.object.isRequired,
-  movies: PropTypes.array.isRequired
+  movies: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps)(Movies);
+export default connect(mapStateToProps, mapDispatchToProps)(Movies);

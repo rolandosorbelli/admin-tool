@@ -16,7 +16,7 @@ describe('Movies Component', () => {
   });
 
   it('checks if <div> exists', () => {
-    expect(wrapper.find('div').length).toBe(1);
+    expect(wrapper.find('div').length).toBe(2);
   });
 
   it('checks if <h1> exists', () => {
