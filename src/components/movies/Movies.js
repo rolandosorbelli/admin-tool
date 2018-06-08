@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as movieActions from '../../actions/movieActions';
+import MovieList from './MovieList';
 
 export class Movies extends React.Component {
   constructor(props, context){
@@ -9,15 +10,16 @@ export class Movies extends React.Component {
 
   }
 
-  movieRow(movie, index) {
-    return <div key={index} className="movieRow">{movie.title}</div>;
-  }
+  // movieRow(movie, index) {
+  //   return <div key={index} className="movieRow">{movie.title}</div>;
+  // }
 
   render() {
+    const {movies} = this.props;
     return (
       <div>
         <h1 className="pageTitle">Movies</h1>
-          <div className="movieContainer">{this.props.movies.map(this.movieRow)}</div>
+          <MovieList movies={movies}/>
       </div>
     );
   }

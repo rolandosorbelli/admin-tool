@@ -10,6 +10,6 @@ export function loadMovies() {
       dispatch(loadMoviesSuccess(movies));
     }).catch(error => {
       throw(error);
-    })
-  }
+    });
+  };
 }

@@ -16,7 +16,7 @@ describe('Movies Component', () => {
   });
 
   it('checks if <div> exists', () => {
-    expect(wrapper.find('div').length).toBe(2);
+    expect(wrapper.find('div').length).toBe(3);
   });
 
   it('checks if <h1> exists', () => {
@@ -35,28 +35,28 @@ describe('Movies Component', () => {
   //   expect(wrapper.find('p').text()).toEqual('At vel indoctum consetetur. Inermis accumsan vel cu. Modo meis platonem eu quo, summo definiebas eam eu.');
   // });
 
-  it('checks if <h3> exists', () => {
-    expect(wrapper.find('h3').length).toBe(1);
-  });
+  // it('checks if <h3> exists', () => {
+  //   expect(wrapper.find('h3').length).toBe(1);
+  // });
 
-  it('renders the text of <h3>', () => {
-    expect(wrapper.find('h3').text()).toEqual('Add Movie');
-  });
+  // it('renders the text of <h3>', () => {
+  //   expect(wrapper.find('h3').text()).toEqual('Add Movie');
+  // });
 
-  it('checks if <input> exists', () => {
-    expect(wrapper.find('input').length).toBe(2);
-  });
+  // it('checks if <input> exists', () => {
+  //   expect(wrapper.find('input').length).toBe(2);
+  // });
 
-  it('checks the type of the "inputField"', () => {
-    expect(inputField.prop('type')).toBe('text');
-  });
-
-  it('checks the type of the "submitButton"', () => {
-    expect(submitButton.prop('type')).toBe('submit');
-  });
-
-  it('checks the text of the "submitButton"', () => {
-    expect(submitButton.prop('value')).toBe('Submit');
-  });
+  // it('checks the type of the "inputField"', () => {
+  //   expect(inputField.prop('type')).toBe('text');
+  // });
+  //
+  // it('checks the type of the "submitButton"', () => {
+  //   expect(submitButton.prop('type')).toBe('submit');
+  // });
+  //
+  // it('checks the text of the "submitButton"', () => {
+  //   expect(submitButton.prop('value')).toBe('Submit');
+  // });
 
 });
