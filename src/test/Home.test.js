@@ -12,7 +12,7 @@ describe('Home Component', () => {
   });
 
   it('renders the text of <h1>', () => {
-    expect(wrapper.find('h1').text()).toEqual('Admin Tool');
+    expect(wrapper.find('h1').text()).toEqual('Movie Tool');
   });
 
   it('checks if <p> exists', () => {

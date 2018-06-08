@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 const MovieListRow = ({movie}) => {
   return (
     <div className="movieRow">
-      <p><Link to={'/movie/' + movie.title}>{movie.title}</Link></p>
+      <h3><Link to={'/movie/' + movie.id}>{movie.title}</Link></h3>
       <p>Director: {movie.director}</p>
       <p>Producer: {movie.producer}</p>
       <p>Release Date: {movie.release_date}</p>
