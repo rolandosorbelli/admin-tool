@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as movieActions from '../../actions/movieActions';
 import MovieForm from './MovieForm';
 
-class ManageMovie extends React.Component {
+export class ManageMovie extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -12,12 +12,27 @@ class ManageMovie extends React.Component {
       movie: Object.assign({}, this.props.movie),
       errors: {}
     };
+
+    this.updateMovieState = this.updateMovieState.bind(this);
+    this.saveMovies = this.saveMovies.bind(this);
+  }
+
+  updateMovieState(event) {
+    const field = event.target.name;
+    let movie = this.state.movie;
+    movie[field] = event.target.value;
+    return this.setState({movie: movie});
+  }
+
+  saveMovies(event) {
+    event.preventDefault();
+    this.props.actions.saveMovies(this.state.movie);
   }
 
   render() {
     return (
         <MovieForm
-          allMovies={[]}
+          onChange={this.updateMovieState}
           movie={this.state.movie}
           errors={this.state.errors}
         />
@@ -26,7 +41,8 @@ class ManageMovie extends React.Component {
 }
 
 ManageMovie.PropTypes = {
-  movie: PropTypes.object.isRequired
+  movie: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
