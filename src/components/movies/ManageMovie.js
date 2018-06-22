@@ -9,12 +9,12 @@ export class ManageMovie extends React.Component {
     super(props, context);
 
     this.state = {
-      movie: Object.assign({}, this.props.movie),
+      movie: Object.assign({}, props.movie),
       errors: {}
     };
 
     this.updateMovieState = this.updateMovieState.bind(this);
-    this.saveMovies = this.saveMovies.bind(this);
+    this.saveMovie = this.saveMovie.bind(this);
   }
 
   updateMovieState(event) {
@@ -24,15 +24,16 @@ export class ManageMovie extends React.Component {
     return this.setState({movie: movie});
   }
 
-  saveMovies(event) {
+  saveMovie(event) {
     event.preventDefault();
-    this.props.actions.saveMovies(this.state.movie);
+    this.props.actions.saveMovie(this.state.movie);
   }
 
   render() {
     return (
         <MovieForm
           onChange={this.updateMovieState}
+          onSave={this.saveMovie}
           movie={this.state.movie}
           errors={this.state.errors}
         />

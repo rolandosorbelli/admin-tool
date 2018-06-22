@@ -22,9 +22,9 @@ export function loadMovies() {
   };
 }
 
-export function saveMovies(movie) {
+export function saveMovie(movie) {
   return function (dispatch, getState) {
-    return movieApi.saveMovies(movie).then(savedMovie => {
+    return movieApi.saveMovie(movie).then(savedMovie => {
       movie.id ? dispatch(updateMovieSuccess(savedMovie)) :
       dispatch(createMovieSuccess(savedMovie));
     }).catch(error => {

@@ -1,9 +1,17 @@
+html {
+  height: 100%;
+}
+
 body {
-  background: -moz-linear-gradient(top, #E2E2E2 0%, #dddad7 100%) !important; /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #E2E2E2 0%,#dddad7 100%) !important; /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #E2E2E2 0%,#dddad7 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2E2E2', endColorstr='#dddad7',GradientType=0 ); /* IE6-9 */
+  /* background: -moz-linear-gradient(top, #E2E2E2 0%, #dddad7 100%) !important; /* FF3.6-15 */
+  /* background: -webkit-linear-gradient(top, #E2E2E2 0%,#dddad7 100%) !important; /* Chrome10-25,Safari5.1-6 */
+  /* background: linear-gradient(to bottom, #E2E2E2 0%,#dddad7 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2E2E2', endColorstr='#dddad7',GradientType=0 ); /* IE6-9 */ */ */ */ */
   font-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  background-color: #dddad7 !important;
 }
 
 h3 {
@@ -17,6 +25,7 @@ h3 {
   color: #4d4d4d;
   margin: 20px auto 40px auto;
   padding: 0 10%;
+  margin: 0;
 }
 
 a {
@@ -51,18 +60,19 @@ nav {
   background-color: #fff;
   font-size: 1em;
   text-align: center;
-  flex-basis: 23.4%;
+  width: 300px;
   border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.20);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.20);
   overflow: hidden;
 }
 
 .movieContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.editIcon {
+.editButton {
   position: relative;
   width: 100%;
   text-align: center;
@@ -70,4 +80,30 @@ nav {
   background-color: #c60124;
   padding: 10px 0;
   margin-top: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  overflow: hidden;
+}
+
+.editButton::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #350002;
+  height: 5px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.editButton:hover:before, .editButton:focus:before, .editButton:active:before {
+  right: 0;
 }
