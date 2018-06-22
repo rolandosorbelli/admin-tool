@@ -1,5 +1,8 @@
 body {
-  background-color: #dddad7 !important;
+  background: -moz-linear-gradient(top, #E2E2E2 0%, #dddad7 100%) !important; /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #E2E2E2 0%,#dddad7 100%) !important; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #E2E2E2 0%,#dddad7 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2E2E2', endColorstr='#dddad7',GradientType=0 ); /* IE6-9 */
   font-size: 100%;
 }
 
@@ -42,16 +45,29 @@ nav {
 
 .movieRow {
   margin: 20px 20px 20px 0;
-  padding: 20px 10px;
-  border-left: solid 4px #c60124;
+  padding: 20px 0 0 0;
+  border-left: solid 2px #c60124;
+  border-right: solid 2px #c60124;
   background-color: #fff;
   font-size: 1em;
-  width: 240px;
   text-align: center;
-  /* align-self: flex-start */
+  flex-basis: 23.4%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.20);
+  overflow: hidden;
 }
 
 .movieContainer {
   display: flex;
   flex-wrap: wrap;
+}
+
+.editIcon {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background-color: #c60124;
+  padding: 10px 0;
+  margin-top: 20px;
 }

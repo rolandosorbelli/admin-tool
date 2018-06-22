@@ -4,12 +4,12 @@ import {Link} from 'react-router';
 const MovieListRow = ({movie}) => {
   return (
     <div className="movieRow">
-      <p><Link to={'/movie/edit/' + movie.id}>(edit)</Link></p>
       <h3>{movie.title}</h3>
       <p>Director: {movie.director}</p>
       <p>Producer: {movie.producer}</p>
       <p>Release Date: {movie.release_date}</p>
       <p><Link to={'/movie/' + movie.id}>Read more</Link></p>
+      <Link to={'/movie/edit/' + movie.id}><div className="editIcon">Edit movie info</div></Link>
     </div>
   );
 };
