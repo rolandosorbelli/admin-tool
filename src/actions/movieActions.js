@@ -1,4 +1,5 @@
 import movieApi from '../api/movieApi';
+import {beginAjaxCall} from './ajaxStatusActions';
 
 export function loadMoviesSuccess(movies) {
   return { type: 'LOAD_MOVIES_SUCCESS', movies };
@@ -14,6 +15,7 @@ export function updateMovieSuccess(movie) {
 
 export function loadMovies() {
   return function(dispatch) {
+    dispatch(beginAjaxCall());
     return movieApi.getAllMovies().then(movies => {
       dispatch(loadMoviesSuccess(movies));
     }).catch(error => {
@@ -24,6 +26,7 @@ export function loadMovies() {
 
 export function saveMovie(movie) {
   return function (dispatch, getState) {
+    dispatch(beginAjaxCall());
     return movieApi.saveMovie(movie).then(savedMovie => {
       movie.id ? dispatch(updateMovieSuccess(savedMovie)) :
       dispatch(createMovieSuccess(savedMovie));

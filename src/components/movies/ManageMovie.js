@@ -32,7 +32,11 @@ export class ManageMovie extends React.Component {
 
   saveMovie(event) {
     event.preventDefault();
-    this.props.actions.saveMovie(this.state.movie);
+    this.props.actions.saveMovie(this.state.movie)
+      .then(() => this.redirect());
+  }
+
+  redirect() {
     this.context.router.push('/movies');
   }
 

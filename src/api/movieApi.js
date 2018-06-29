@@ -1,4 +1,4 @@
-// import delay from './delay';
+import delay from './delay';
 const movies = require('./ghibliMovies');
 
 // console.log(ghibliMovies.movies)
@@ -41,7 +41,7 @@ class MovieApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], movies));
-      });
+      }, delay);
     });
   }
 
@@ -67,7 +67,7 @@ class MovieApi {
         }
 
         resolve(Object.assign({}, movie));
-      });
+      }, delay);
     });
   }
 
@@ -79,7 +79,7 @@ class MovieApi {
         });
         movies.splice(indexOfMovieToDelete, 1);
         resolve();
-      });
+      }, delay);
     });
   }
 }
