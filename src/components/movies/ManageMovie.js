@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as movieActions from '../../actions/movieActions';
 import MovieForm from './MovieForm';
+import toastr from 'toastr';
 
 export class ManageMovie extends React.Component {
   constructor(props, context) {
@@ -10,7 +11,8 @@ export class ManageMovie extends React.Component {
 
     this.state = {
       movie: Object.assign({}, props.movie),
-      errors: {}
+      errors: {},
+      saving: false
     };
 
     this.updateMovieState = this.updateMovieState.bind(this);
@@ -32,11 +34,18 @@ export class ManageMovie extends React.Component {
 
   saveMovie(event) {
     event.preventDefault();
+    this.setState({saving: true});
     this.props.actions.saveMovie(this.state.movie)
-      .then(() => this.redirect());
+      .then(() => this.redirect())
+      .catch(error => {
+        toastr.error(error);
+        this.setState({saving:false});
+      });
   }
 
   redirect() {
+    this.setState({saving:false});
+    toastr.success('The movie has been saved');
     this.context.router.push('/movies');
   }
 
@@ -47,6 +56,7 @@ export class ManageMovie extends React.Component {
           onSave={this.saveMovie}
           movie={this.state.movie}
           errors={this.state.errors}
+          saving={this.state.saving}
         />
     );
   }

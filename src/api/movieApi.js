@@ -51,7 +51,7 @@ class MovieApi {
         // Simulate server-side validation
         const minMovieTitleLength = 1;
         if (movie.title.length < minMovieTitleLength) {
-          reject(`Title must be at least ${minMovieTitleLength} characters.`);
+          reject(`Title must be at least ${minMovieTitleLength} characters`);
         }
 
         if (movie.id) {
