@@ -17,6 +17,12 @@ export class ManageMovie extends React.Component {
     this.saveMovie = this.saveMovie.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.movie.id != nextProps.movie.id) {
+      this.setState({movie: Object.assign({}, nextProps.movie)});
+    }
+  }
+
   updateMovieState(event) {
     const field = event.target.name;
     let movie = this.state.movie;
@@ -59,11 +65,10 @@ function getMovieById(movies, id) {
 
 function mapStateToProps(state, ownProps) {
   const movieId = ownProps.params.id;
-  console.log(ownProps)
 
   let movie = {id: '', title: '', director: '', producer: '', release_date: '', description: ''};
 
-  if (movieId) {
+  if (movieId && state.movies.length > 0) {
     movie = getMovieById(state.movies, movieId);
   }
 
