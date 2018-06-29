@@ -27,6 +27,7 @@ export class ManageMovie extends React.Component {
   saveMovie(event) {
     event.preventDefault();
     this.props.actions.saveMovie(this.state.movie);
+    this.context.router.push('/movies');
   }
 
   render() {
@@ -44,6 +45,10 @@ export class ManageMovie extends React.Component {
 ManageMovie.PropTypes = {
   movie: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
+};
+
+ManageMovie.contextTypes = {
+  router: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {

@@ -34,6 +34,11 @@ export class Movies extends React.Component {
   }
 }
 
+Movies.propTypes = {
+  movies: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
+};
+
 function mapStateToProps(state, ownProps) {
   return {
     movies: state.movies
@@ -45,10 +50,5 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(movieActions, dispatch)
   };
 }
-
-Movies.propTypes = {
-  movies: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Movies);
