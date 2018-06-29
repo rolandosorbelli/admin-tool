@@ -51,11 +51,26 @@ ManageMovie.contextTypes = {
   router: PropTypes.object
 };
 
+function getMovieById(movies, id) {
+  const movie = movies.filter(movie => movie.id == id);
+  if (movie.length) return movie[0];
+  return null;
+}
+
 function mapStateToProps(state, ownProps) {
+  const movieId = ownProps.params.id;
+  console.log(ownProps)
+
   let movie = {id: '', title: '', director: '', producer: '', release_date: '', description: ''};
+
+  if (movieId) {
+    movie = getMovieById(state.movies, movieId);
+  }
+
   return {
     movie: movie
   };
+
 }
 
 function mapDispatchToProps(dispatch) {

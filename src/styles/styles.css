@@ -3,10 +3,6 @@ html {
 }
 
 body {
-  /* background: -moz-linear-gradient(top, #E2E2E2 0%, #dddad7 100%) !important; /* FF3.6-15 */
-  /* background: -webkit-linear-gradient(top, #E2E2E2 0%,#dddad7 100%) !important; /* Chrome10-25,Safari5.1-6 */
-  /* background: linear-gradient(to bottom, #E2E2E2 0%,#dddad7 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2E2E2', endColorstr='#dddad7',GradientType=0 ); /* IE6-9 */ */ */ */ */
   font-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -41,6 +37,23 @@ nav {
   padding-top: 20px;
 }
 
+.innerForm {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px 0 0 -30px;
+}
+
+.innerForm > div {
+  width: calc(100% * (1/2) - 30px);
+  height: auto;
+  margin: 30px 0 0 30px;
+}
+
+.form-textarea {
+  width: 100% !important;
+  height: auto;
+}
+
 .inputField {
   width: 50%;
   padding: 5px;
@@ -64,6 +77,10 @@ nav {
   border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.20);
   overflow: hidden;
+}
+
+.btn.btn-primary {
+  margin-top: 30px;
 }
 
 .movieContainer {
